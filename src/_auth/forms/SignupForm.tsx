@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import {
   Form,
@@ -16,13 +16,24 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { createUserAccount } from "@/lib/appwrite/api";
+import {
+  useCreateUserAccount,
+  useSignInAccount,
+} from "@/lib/react-query/queriesAndMutations";
+import { useUserContext } from "@/context/AuthContext";
 
 ("use client");
 
 const SignupForm = () => {
   const { toast } = useToast();
-  const isLoading = false;
+  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const navigate = useNavigate();
+
+  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } =
+    useCreateUserAccount();
+
+  const { mutateAsync: signInAccount, isLoading: isSigningIn } =
+    useSignInAccount();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignupValidation>>({
@@ -39,18 +50,35 @@ const SignupForm = () => {
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     const newUser = await createUserAccount(values);
 
-    if(!newUser) {
+    if (!newUser) {
       return toast({
-        title: 'Sign up failed. Please try again!',
-      })
+        title: "Sign up failed. Please try again!",
+      });
     }
 
+    const session = await signInAccount({
+      email: values.email,
+      password: values.password,
+    })
+
+    if(!session) {
+      return toast({title: 'Sign in failed. Please try again!'})
+    }
+
+    const isLoggedIn = await checkAuthUser();
+
+    if(isLoggedIn) {
+      form.reset();
+      navigate('/')
+    } else {
+      return toast({ title: 'Sign up failed. Please try again!' })
+    }
   }
 
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo.svg"  alt= "logo" className="sm:w-32" />
+        <img src="/assets/images/logo.svg" alt="logo" className="sm:w-32" />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Create a new account
@@ -120,15 +148,22 @@ const SignupForm = () => {
           )}
         />
         <Button type="submit" className="shad-button_primary">
-          {isLoading ? (
-            <div className="flex center gap-2"><Loader /> Coming soon..</div>
+          {isCreatingUser ? (
+            <div className="flex center gap-2">
+              <Loader /> Coming soon..
+            </div>
           ) : (
             "Sign up"
           )}
         </Button>
         <p className="text-small-regular text-light-2 text-center mt-2">
           Already have an account?
-          <Link to="/sign-in" className="text-primary-500 text-small-semibold ml-1">Log in</Link>
+          <Link
+            to="/sign-in"
+            className="text-primary-500 text-small-semibold ml-1"
+          >
+            Log in
+          </Link>
         </p>
       </form>
     </Form>
