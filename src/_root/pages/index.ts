@@ -7,4 +7,4 @@ export { default as UpdateProfile } from './UpdateProfile';
 export { default as EditPost } from './EditPost';
 export { default as PostDetails } from './PostDetails';
 export { default as AllUsers } from './AllUsers';
-export { default as LikePosts } from './LikePosts';
+export { default as LikedPosts } from './LikedPosts';
