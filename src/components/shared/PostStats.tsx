@@ -1,15 +1,19 @@
 import { useUserContext } from "@/context/AuthContext";
-import { useDeleteSavedPost, useLikePost, useSavePost } from "@/lib/react-query/queriesAndMutations";
-import { Models } from "appwrite"
+import {
+  useDeleteSavedPost,
+  useLikePost,
+  useSavePost,
+} from "@/lib/react-query/queriesAndMutations";
+import { Models } from "appwrite";
 import { checkIsLiked } from "@/lib/utils";
 
 type PostStatsProps = {
-    post: Models.Document;
-    userId: string;
-}
+  post: Models.Document;
+  userId: string;
+};
 
 const PostStats = ({ post, userId }: PostStatsProps) => {
-  const likesList = post.likes.map((user: Models.Document) => user.$id); 
+  const likesList = post.likes.map((user: Models.Document) => user.$id);
 
   const [likes, setLikes] = useState(likesList);
   const [isSaved, setIsSaved] = useState(false);
@@ -20,34 +24,38 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
 
   const { data: cureentUser } = useUserContext();
 
-  const handleLikePost = () => {}
-  const handleSavePost = () => {}
+  const handleLikePost = () => {};
+  const handleSavePost = () => {};
   return (
     <div className="flex justify-between items-center z-20">
-        <div className="flex gap-2 mr-5">
-            <img 
-            src={`${checkIsLiked(likes, userId) ? "/assets/icons/like.svg"`}
-            alt="like"
-            width={20}
-            height={20}
-            onClick={() => {}}
-            className="cursor-pointer"
-            />
-            <p className="small-medium lg:base-medium">0</p>
-        </div>
+      <div className="flex gap-2 mr-5">
+        <img
+          src={
+            checkIsLiked(likes, userId)
+              ? "/assets/icons/liked.svg"
+              : "/assets/icons/like.svg"
+          } 
+          alt="like"
+          width={20}
+          height={20}
+          onClick={handleLikePost}
+          className="cursor-pointer"
+        />
+        <p className="small-medium lg:base-medium">{likes.lenght}</p>
+      </div>
 
-        <div className="flex gap-2">
-            <img 
-            src="/assets/icons/save.svg"
-            alt="save"
-            width={20}
-            height={20}
-            onClick={() => {}}
-            className="cursor-pointer"
-            />
-        </div>
+      <div className="flex gap-2">
+        <img
+          src={isSaved ? "/assets/icons/saved.svg" : "/assets/icons/save.svg"} 
+          alt="save"
+          width={20}
+          height={20}
+          onClick={handleSavePost}
+          className="cursor-pointer"
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default PostStats
+export default PostStats;
