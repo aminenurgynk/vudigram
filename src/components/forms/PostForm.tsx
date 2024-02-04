@@ -17,14 +17,17 @@ import FileUploader from "../shared/FileUploader";
 import { PostValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
 import { useToast } from "../ui/use-toast";
+import { Models } from "appwrite";
+import { useCreatePost } from "@/lib/react-query/queriesAndMutations";
 
 type PostFormProps = {
   post?: Models.Document;
+  
 };
 
 const PostForm = ({ post }: PostFormProps) => {
 
-  const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
+  const { mutateAsync: createPost, isLoading: isLoadingCreate } = useCreatePost();
   const { user } =useUserContext();
   const { toast } = useToast();
   const navigate = useNavigate();

@@ -44,7 +44,7 @@ const SigninForm = () => {
 
     if (!newUser) {
       return toast({
-        title: "Sign up failed. Please try again!",
+        title: "Sign in failed. Please try again!",
       });
     }
 
