@@ -1,3 +1,4 @@
+import { getCurrentUser } from '@/lib/appwrite/api';
 import {
 useQuery,
 useMutation,
@@ -106,5 +107,12 @@ export const useDeleteSavedPost = () => {
                 queryKey: [QUERY_KEYS.GET_CURRENT_USER]
             })     
         }
+    })
+}
+
+export const usegetCurrentUser = () => {
+    return useQuery({
+        queryKey: [QUERY_KEYS.GET_CURRENT_USER],
+        queryFn: getCurrentUser
     })
 }
