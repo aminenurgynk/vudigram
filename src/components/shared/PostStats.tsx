@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { Loader } from "lucide-react";
 
 type PostStatsProps = {
-  post: Models.Document;
+  post?: Models.Document;
   userId: string;
 };
 
