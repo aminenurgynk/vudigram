@@ -1,4 +1,4 @@
-import { getCurrentUser } from '@/lib/appwrite/api';
+import { getCurrentUser, getPostById } from '@/lib/appwrite/api';
 import {
 useQuery,
 useMutation,
@@ -114,5 +114,13 @@ export const usegetCurrentUser = () => {
     return useQuery({
         queryKey: [QUERY_KEYS.GET_CURRENT_USER],
         queryFn: getCurrentUser
+    })
+}
+
+export const useGetPostById = (postId: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEYS.GET_POST_BY_ID, postId],
+        queryFn: () => getPostById(postId),
+        enabled: !!postId
     })
 }
