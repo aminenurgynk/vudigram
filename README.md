@@ -10,7 +10,7 @@ Discover what makes Vudigram special by visiting our domain: https://vudigramm.w
 ## Key Features 🔍
 
 - **Authentication System** 🔑: Experience a secure login with our robust authentication system, designed to protect your privacy and data.
-  ![sign in](/public/assests/images/signIn.png)
+  ![sign in](public/assests/images/signIn.png)
   ![sign up](./public/assests/images/signUp.png)
 - **Explore Page** 🌐: Dive into a vibrant homepage crafted for discovering posts. With top creators featured prominently, inspiration is just a scroll away.
 - **Like and Save Functionality** ❤️💾: Engage with content by liking and saving your favorites. Easily manage what you've saved or liked on dedicated pages.
