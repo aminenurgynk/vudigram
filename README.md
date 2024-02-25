@@ -24,7 +24,7 @@ Discover what makes Vudigram special by visiting our domain: https://vudigramm.w
   
 - **Profile Page** 👤: Showcase your liked posts and tweak your profile to reflect your persona, all from your personalized page.
   
-  ![profile](public/assets/images/profile.png)
+  ![profile](public/assets/images/userProfile.png)
   
 - **Browse Other Users** 🔍: Explore the profiles and posts of other users, discovering new content and creators along the way.
   
