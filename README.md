@@ -11,22 +11,22 @@ Discover what makes Vudigram special by visiting our domain: https://vudigramm.w
 
 - **Authentication System** 🔑: Experience a secure login with our robust authentication system, designed to protect your privacy and data.
   ![sign in](public/assets/images/signIn.png)
-  ![sign up](./public/assests/images/signUp.png)
+  ![sign up](public/assets/images/signUp.png)
 - **Explore Page** 🌐: Dive into a vibrant homepage crafted for discovering posts. With top creators featured prominently, inspiration is just a scroll away.
 - **Like and Save Functionality** ❤️💾: Engage with content by liking and saving your favorites. Easily manage what you've saved or liked on dedicated pages.
 - **Detailed Post Page** 📄: Each post opens into a detailed page where content takes center stage, accompanied by related posts to keep you immersed.
-  ![post details](./public/assests/images/postDetails.png)
+  ![post details](public/assets/images/postDetails.png)
 - **Profile Page** 👤: Showcase your liked posts and tweak your profile to reflect your persona, all from your personalized page.
-  ![profile](public/assests/images/profile.png)
+  ![profile](public/assets/images/profile.png)
 - **Browse Other Users** 🔍: Explore the profiles and posts of other users, discovering new content and creators along the way.
-  ![users](public/assests/images/users.png)
+  ![users](public/assets/images/users.png)
 - **Create Post Page** 📤: Share memories effortlessly with our user-friendly post creation page, featuring simple file management and drag-and-drop functionality.
-  ![create post](public/assests/images/createPost.png)
+  ![create post](public/assets/images/createPost.png)
 - **Edit Post and Profile Functionality** ✏️: Update the content of your posts and profile anytime with our straightforward editing feature.
-  ![edit post](public/assests/images/editPost.png)
-  ![edit profile](public/assests/images/editProfile.png)
+  ![edit post](public/assets/images/editPost.png)
+  ![edit profile](public/assets/images/editProfile.png)
 - **Responsive UI with Bottom Bar** 📱: Navigate with ease thanks to our responsive UI, complete with a bottom bar for that authentic mobile app feel.
-  ![mobile](public/assests/images/mobileApp.png)
+  ![mobile](public/assets/images/mobileApp.png)
 - **React Query Integration** 🔄: Enjoy enhanced performance with React Query, supporting auto-caching, parallel queries, and more for a smooth user experience.
 - **Backend as a Service (BaaS) - Appwrite** ☁️: Benefit from streamlined backend development with Appwrite, offering comprehensive services like authentication, database management, and file storage.
 
