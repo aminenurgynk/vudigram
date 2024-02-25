@@ -26,6 +26,7 @@ Discover what makes Vudigram special by visiting our domain: https://vudigramm.w
   ![edit post](public/assets/images/editPost.png)
   ![edit profile](public/assets/images/editProfile.png)
 - **Responsive UI with Bottom Bar** 📱: Navigate with ease thanks to our responsive UI, complete with a bottom bar for that authentic mobile app feel.
+  
   ![mobile](public/assets/images/mobileApp.png)
 - **React Query Integration** 🔄: Enjoy enhanced performance with React Query, supporting auto-caching, parallel queries, and more for a smooth user experience.
 - **Backend as a Service (BaaS) - Appwrite** ☁️: Benefit from streamlined backend development with Appwrite, offering comprehensive services like authentication, database management, and file storage.
